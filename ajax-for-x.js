@@ -1,26 +1,41 @@
-var app = angular.module("toOnePageApp", []);
+var app = angular.module("toOnePageApp", ["pageDataService"]);
 
-app.controller('mainCtrl', ["$scope", "$http", function($scope, $http) {
-  var promise;
-  $scope.request = function() {
-    promise = $http.get("http://localhost/newdeco/ajax-toy").then(function(response) {
-      return response.data;
+app.controller('mainCtrl', ["$scope", "$http", "pageData", function($scope, $http, pageData) {
+  $scope.baseUrl = window.location.protocol + "//" + window.location.host + "/newdeco";
+  $scope.pageData;
+  $scope.getContent = function(eventObj) {
+    var href = eventObj.target.attributes.href.value,
+      regex = /\/([^/]*)$/,
+      pageId = href.match(regex)[1];
+
+    pageData.getPage($scope.baseUrl, pageId).then(function(content) {
+      $scope.$broadcast("newdata", content);
     });
-    return promise;
+  };
+}]);
+
+app.directive('displayPage', [function() {
+  return {
+    restrict: 'E',
+    scope: {
+      pageName: "@pageName"
+    },
+    link: function(scope, elem, attrs) {
+    }
   }
 }]);
 
-app.directive('requestClick', function() {
+app.directive('dynamicContainer', [function() {
   return {
-    restrict: 'A',
-    scope: {
-      click: '&'
-    },
-    link: function(scope, element, attributes) {
-
+    restrict: "E",
+    require: displayPage,
+    link: function(scope, elem, attrs) {
+      scope.$on('newdata', function(content) {
+        elem.append(displayPage);
+      });
     }
   }
-});
+}]);
 
 
 //User clicks
