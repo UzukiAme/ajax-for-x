@@ -1,0 +1,10 @@
+---Interface---
+An area where users can specify the classes/ids of the items they want to trigger an ajax request
+  *must have an href value (code also must be able to find the first href in the descendant tree)
+  *how to make the process of determining where to add the to-one-pg-btn class less technical?
+  *also allow users to add the class themselves when building the page.
+
+Make sure code can handle the possibility of hash urls
+
+--v 2.0--
+Do an overhaul with angular
