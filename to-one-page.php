@@ -11,10 +11,4 @@ function to_one_page_scripts() {
   wp_enqueue_style('main-css', plugins_url() . "/to-one-page/assets/main.css");
 }
 add_action('wp_enqueue_scripts', 'to_one_page_scripts');
-
-function transform_content() {
-
-}
-add_action('the_content');
-
 ?>

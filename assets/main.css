@@ -1,3 +1,11 @@
 .top-pages-container {
   position: relative;
 }
+.content {
+  overflow: hidden;
+}
+
+/*CONTROL CLASSES*/
+.hidden {
+  display: none;
+}
