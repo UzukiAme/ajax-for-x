@@ -4,7 +4,11 @@ An area where users can specify the classes/ids of the items they want to trigge
   *how to make the process of determining where to add the to-one-pg-btn class less technical?
   *also allow users to add the class themselves when building the page.
 
+Field to specify what direction a page should come from.
+
 Make sure code can handle the possibility of hash urls
 
 --v 2.0--
 Do an overhaul with angular
+
+Create page objects that store animation defs
