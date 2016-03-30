@@ -6,7 +6,10 @@ An area where users can specify the classes/ids of the items they want to trigge
 
 Field to specify what direction a page should come from.
 
-Make sure code can handle the possibility of hash urls
+--To Do--
+Set up routing
+
+Loading animation
 
 --v 2.0--
 Do an overhaul with angular
